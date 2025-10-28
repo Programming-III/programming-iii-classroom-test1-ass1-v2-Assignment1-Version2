@@ -61,15 +61,28 @@ jobs:
           "PASS"; else print "FAIL"}'''
         timeout: 10
         max-score: 5
-    - name: Student Display Test
-      id: student-display-test
+    - name: Student Display
+      id: student-display
       uses: classroom-resources/autograding-io-grader@v1
       with:
-        test-name: Student Display Test
+        test-name: Student Display
         setup-command: g++ main.cpp -o main
-        command: "./main Student"
+        command: "./main"
         input: ''
         expected-output: 'Name: Omar Nabil\nID: 2202\nYear: 2\nMajor: Informatics'
+        comparison-method: contains
+        timeout: 10
+        max-score: 5
+    - name: Instructor Display
+      id: instructor-display
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Instructor Display
+        setup-command: g++ main.cpp -o main
+        command: "./main"
+        input: ''
+        expected-output: 'Name: Dr. Lina Khaled\nID: 9001\nDepartment: Computer Science\nExperience:
+          5 years'
         comparison-method: contains
         timeout: 10
         max-score: 5
@@ -81,6 +94,7 @@ jobs:
         ALL-CLASSES-DECLARED_RESULTS: "${{steps.all-classes-declared.outputs.result}}"
         CONSTRUCTOR-DECLARATION_RESULTS: "${{steps.constructor-declaration.outputs.result}}"
         DESTRUCTOR-DECLARATION_RESULTS: "${{steps.destructor-declaration.outputs.result}}"
-        STUDENT-DISPLAY-TEST_RESULTS: "${{steps.student-display-test.outputs.result}}"
+        STUDENT-DISPLAY_RESULTS: "${{steps.student-display.outputs.result}}"
+        INSTRUCTOR-DISPLAY_RESULTS: "${{steps.instructor-display.outputs.result}}"
       with:
-        runners: implementation-file-check,private-members-check,all-classes-declared,constructor-declaration,destructor-declaration,student-display-test
+        runners: implementation-file-check,private-members-check,all-classes-declared,constructor-declaration,destructor-declaration,student-display,instructor-display
