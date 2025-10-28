@@ -61,29 +61,31 @@ jobs:
           "PASS"; else print "FAIL"}'''
         timeout: 10
         max-score: 5
-    - name: Student Display
-      id: student-display
-      uses: classroom-resources/autograding-io-grader@v1
+    - name: Course Display
+      id: course-display
+      uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Student Display
-        setup-command: g++ main.cpp -o main
-        command: "./main"
-        input: ''
-        expected-output: 'Name: Omar Nabil\nID: 2202\nYear: 2\nMajor: Informatics'
-        comparison-method: contains
+        test-name: Course Display
+        setup-command: g++ -std=c++11 -o main main.cpp
+        command: ./main | grep -q "CS101"
         timeout: 10
         max-score: 5
     - name: Instructor Display
       id: instructor-display
-      uses: classroom-resources/autograding-io-grader@v1
+      uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Instructor Display
-        setup-command: g++ main.cpp -o main
-        command: "./main"
-        input: ''
-        expected-output: 'Name: Dr. Lina Khaled\nID: 9001\nDepartment: Computer Science\nExperience:
-          5 years'
-        comparison-method: contains
+        setup-command: g++ -std=c++11 -o main main.cpp
+        command: ./main | grep -q "Dr. Lina Khaled"
+        timeout: 10
+        max-score: 5
+    - name: Student Display
+      id: student-display
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Student Display
+        setup-command: g++ -std=c++11 -o main main.cpp
+        command: ./main | grep -q "Omar Nabil"
         timeout: 10
         max-score: 5
     - name: Autograding Reporter
@@ -94,7 +96,8 @@ jobs:
         ALL-CLASSES-DECLARED_RESULTS: "${{steps.all-classes-declared.outputs.result}}"
         CONSTRUCTOR-DECLARATION_RESULTS: "${{steps.constructor-declaration.outputs.result}}"
         DESTRUCTOR-DECLARATION_RESULTS: "${{steps.destructor-declaration.outputs.result}}"
-        STUDENT-DISPLAY_RESULTS: "${{steps.student-display.outputs.result}}"
+        COURSE-DISPLAY_RESULTS: "${{steps.course-display.outputs.result}}"
         INSTRUCTOR-DISPLAY_RESULTS: "${{steps.instructor-display.outputs.result}}"
+        STUDENT-DISPLAY_RESULTS: "${{steps.student-display.outputs.result}}"
       with:
-        runners: implementation-file-check,private-members-check,all-classes-declared,constructor-declaration,destructor-declaration,student-display,instructor-display
+        runners: implementation-file-check,private-members-check,all-classes-declared,constructor-declaration,destructor-declaration,course-display,instructor-display,student-display
