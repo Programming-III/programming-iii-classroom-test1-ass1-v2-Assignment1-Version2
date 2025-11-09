@@ -1,118 +1,109 @@
+# Programming III – Assignment 01: Educational Learning Portal System
 
-**German International University**  
-**Faculty of Informatics and Computer Science**  
-**Dr. Nada Sharaf**  
-**Programming III – Winter Semester 2025/2026**  
-**Assignment 01**
+## Course Information
 
-# Educational Learning Portal System
+**Institution:** German International University  
+**Faculty:** Faculty of Informatics and Computer Science  
+**Instructor:** Dr. Nada Sharaf  
+**Course:** Programming III  
+**Semester:** Winter Semester 2025/2026
+
+
 
 ## General Description
 
-In this project, you are tasked with implementing a simple **Educational Learning Portal System** as a console application. The system simulates how students enroll in courses, view grades, and track their progress. 
+In this project, you are required to implement a simple Educational Learning Portal System as a console-based application. The system models how students and instructors interact with courses in an educational environment.
 
-The purpose of this assignment is to practice some **Object-Oriented Programming (OOP)** concepts. This assignment focuses on the structure of the system. Full functionality (grading, detailed reports, and performance analytics) will be implemented in **In-lab Assignment 02**.
+The main goal of this milestone is to practice fundamental Object-Oriented Programming (OOP) concepts such as classes, constructors, destructors, encapsulation, and dynamic memory allocation.
 
----
+In this phase, you will build the basic class structure of the system. The complete functionality and relationships between components will be implemented later in Milestone 2 (Assignment).
+
+
 
 ## Milestone 01: Required Classes and Methods
 
 ### a) Person Class
 
-Represents a general person in the system. This class will serve as the base class for `Student` and `Instructor`.
+This class represents a general person within the system. It will serve as a base class for both Student and Instructor.
 
-#### Attributes (all private):
-- `string name`
-- `int id`
+**Private Attributes:**
+- `string name` — stores the person's full name
+- `int id` — stores a unique identifier for the person
 
-#### Methods:
-- `display()`: Displays the person's name and ID 
+**Methods:**
+- `display()` — prints the person's name and ID
 
-#### Subclasses (inherit from Person):
+**Subclasses (inherit from Person):**
 
-**Student:** Adds
-- `int yearLevel`
-- `string major`
+#### 1. Student Class
 
-**Instructor:** Adds
-- `string department`
-- `int experienceYears`
+Represents a student in the system. Inherits from Person and adds the following attributes:
+- `int yearLevel` — student's current academic year
+- `string major` — student's field of study
 
+#### 2. Instructor Class
 
+Represents an instructor in the system. Inherits from Person and adds the following attributes:
+- `string department` — instructor's department name
+- `int experienceYears` — number of years of teaching experience
+
+---
 
 ### b) Course Class
 
-Represents a course that can be taken by students and taught by instructors.
+This class represents a course offered in the system. Each course can have a limited number of students enrolled.
 
-#### Attributes (all private):
-- `string courseCode`
-- `string courseName`
-- `int maxStudents`
+**Private Attributes:**
+- `string courseCode` — unique course identifier (e.g., "CS101")
+- `string courseName` — course title (e.g., "Introduction to Programming")
+- `int maxStudents` — maximum number of students allowed in the course
 - `Student* students` — dynamically allocated array of Student objects
+- `int currentStudents` — keeps track of the number of currently enrolled students
 
-#### Methods:
-- `addStudent(Student s)`: Adds a student to the array if capacity allows
-- `displayCourseInfo()`: Displays course name, code, and all enrolled students
-
-#### Example Dynamic Allocation:
-```cpp
-students = new Student[maxStudents];
-```
+**Methods:**
+- `addStudent(const Student& s)` — adds a new student to the course by constant reference if there is available capacity
+- `displayCourseInfo()` — displays the course's information and all enrolled students
 
 
+## You must include:
 
-### c) Portal Class
+1. **Header files** for each of the following classes:
+   - Person
+   - Student
+   - Instructor
+   - Course
 
-Represents the main educational portal that manages students, instructors, and courses.
+2. **A single source file (main.cpp)** containing:
+   - All class implementations
+   - A `main()` function that demonstrates:
+     - Creating objects of Student, Instructor, and Course
+     - Adding students to a course
+     - Displaying the course and person information
 
-#### Attributes:
-- `Course* courses` — dynamic array of courses
-- `Student* students` — dynamic array of students
-- `Instructor* instructors` — dynamic array of instructors
-
-#### Methods:
-- `initializePortal()`: Dynamically creates a few courses, students, and instructors
-- `enrollStudentInCourse(Student s, Course c)`: Enrolls a student in a specific course
-- `displayPortalInfo()`: Displays all current courses, students, and their relationships
-
-
-## Deliverables
-
-You must include:
-
-1. **Header files** for each of the above classes
-2. A single **source file** (`main.cpp`) containing all implementations
-3. A `main()` function that:
-   - Initializes the portal
-   - Dynamically adds a few students and instructors
-   - Enrolls students in courses
-   - Displays the portal's full information (students, instructors, and courses)
-4. Include your name in the file `yourInformation.txt` using the following format:
+3. **A text file named yourInformation.txt** containing:
 ```
    TutorialNumber_StudentID_StudentName
 ```
-   **Example:** `T2_16007163_Ahmed Mohamed`
+   
+   **Example:**
+```
+   T2_16007163_Ahmed Mohamed
+```
 
+---
 
-
-##  Important Notes
+## Important Notes
 
 - **Cheating = 0 in the assignment**
 - **AI-generated code = 0 in the project**
-- Each class must have:
+- Each class must include:
   - A default constructor
   - A parameterized constructor
   - A destructor (even if empty)
-- Arrays and objects must be **dynamically allocated** using single pointers, e.g.:
-```cpp
-  Student* students = new Student[maxStudents];
-```
-
-
-
+  - **All attributes must be private, and data access must be controlled through setter and getter methods.**
+ 
 ## Example Console Output
-```
-Educational Portal initialized successfully.
+
 
 Course: CS101 - Introduction to Programming
 Max Students: 3
