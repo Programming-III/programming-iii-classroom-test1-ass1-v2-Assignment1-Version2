@@ -1,13 +1,11 @@
-# Educational Learning Portal System
 
-## Course Information
 **German International University**  
 **Faculty of Informatics and Computer Science**  
 **Dr. Nada Sharaf**  
 **Programming III – Winter Semester 2025/2026**  
 **In-lab Assignment 01**
 
----
+# Educational Learning Portal System
 
 ## General Description
 
@@ -28,7 +26,7 @@ Represents a general person in the system. This class will serve as the base cla
 - `int id`
 
 #### Methods:
-- `display()`: Displays the person's name and ID (no virtual functions required)
+- `display()`: Displays the person's name and ID 
 
 #### Subclasses (inherit from Person):
 
@@ -40,7 +38,7 @@ Represents a general person in the system. This class will serve as the base cla
 - `string department`
 - `int experienceYears`
 
----
+
 
 ### b) Course Class
 
@@ -61,7 +59,7 @@ Represents a course that can be taken by students and taught by instructors.
 students = new Student[maxStudents];
 ```
 
----
+
 
 ### c) Portal Class
 
@@ -77,7 +75,6 @@ Represents the main educational portal that manages students, instructors, and c
 - `enrollStudentInCourse(Student s, Course c)`: Enrolls a student in a specific course
 - `displayPortalInfo()`: Displays all current courses, students, and their relationships
 
----
 
 ## Deliverables
 
@@ -96,9 +93,9 @@ You must include:
 ```
    **Example:** `T2_16007163_Ahmed Mohamed`
 
----
 
-## ⚠️ Important Notes
+
+##  Important Notes
 
 - **Cheating = 0 in the assignment**
 - **AI-generated code = 0 in the project**
@@ -111,9 +108,9 @@ You must include:
   Student* students = new Student[maxStudents];
 ```
 
----
 
-## 📋 Example Console Output
+
+## Example Console Output
 ```
 Educational Portal initialized successfully.
 
@@ -130,24 +127,7 @@ Student Info:
 Name: Omar Nabil
 Year: 2
 Major: Informatics
-```
 
----
-
-## Project Structure
-```
-project/
-│
-├── Person.h
-├── Student.h
-├── Instructor.h
-├── Course.h
-├── Portal.h
-├── main.cpp
-└── yourInformation.txt
-```
-
----
 
 ## Getting Started
 
@@ -157,14 +137,5 @@ project/
 4. Create `yourInformation.txt` with your details
 5. Compile and run your program
 
----
-
-## Compilation
-```bash
-g++ main.cpp -o portal
-./portal
-```
-
----
 
 ## Good Luck! 🎓
