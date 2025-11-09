@@ -105,8 +105,8 @@ This class represents a course offered in the system. Each course can have a lim
 ## Example Console Output
 
 
-Course: CS101 - Introduction to Programming
-Max Students: 3
+Course: CS101 - Introduction to Programming  
+Max Students: 3  
 Currently Enrolled: Omar Nabil (ID: 2202)  
 
 Instructor Info:  
