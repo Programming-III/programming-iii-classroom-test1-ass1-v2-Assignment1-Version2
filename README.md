@@ -3,7 +3,7 @@
 **Faculty of Informatics and Computer Science**  
 **Dr. Nada Sharaf**  
 **Programming III – Winter Semester 2025/2026**  
-**In-lab Assignment 01**
+**Assignment 01**
 
 # Educational Learning Portal System
 
@@ -128,14 +128,3 @@ Name: Omar Nabil
 Year: 2
 Major: Informatics
 
-
-## Getting Started
-
-1. Create header files for each class (`Person.h`, `Student.h`, `Instructor.h`, `Course.h`, `Portal.h`)
-2. Implement all class methods in `main.cpp`
-3. Write the `main()` function to test your implementation
-4. Create `yourInformation.txt` with your details
-5. Compile and run your program
-
-
-## Good Luck! 🎓
