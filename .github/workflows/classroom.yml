@@ -1,7 +1,7 @@
 name: Autograding Tests
-'on':
-- push
-- repository_dispatch
+on:
+  schedule:
+  - cron: '0 9 15 11 *' 
 permissions:
   checks: write
   actions: read
