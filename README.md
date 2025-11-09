@@ -1,150 +1,60 @@
-📚 Educational Learning Portal System
+# Educational Learning Portal System
 
-Programming III – In-lab Assignment 01
-German International University — Faculty of Informatics and Computer Science
-Winter Semester 2025/2026
-Dr. Nada Sharaf
+## Course Information
+**German International University**  
+**Faculty of Informatics and Computer Science**  
+**Dr. Nada Sharaf**  
+**Programming III – Winter Semester 2025/2026**  
+**In-lab Assignment 01**
 
-📌 Project Description
+---
 
-This project implements a simple Educational Learning Portal System using C++.
-The application simulates how students enroll in courses, view basic course info, and track their enrollment.
+## General Description
 
-This assignment focuses on Object-Oriented Programming (OOP) concepts:
+In this project, you are tasked with implementing a simple **Educational Learning Portal System** as a console application. The system simulates how students enroll in courses, view grades, and track their progress. 
 
-Classes
+The purpose of this assignment is to practice some **Object-Oriented Programming (OOP)** concepts. This assignment focuses on the structure of the system. Full functionality (grading, detailed reports, and performance analytics) will be implemented in **In-lab Assignment 02**.
 
-Inheritance
+---
 
-Dynamic allocation
+## Milestone 01: Required Classes and Methods
 
-Composition (Portal contains courses, students, instructors)
+### a) Person Class
 
-✅ Full functionality (grading, reports, analytics) will be completed in In-lab Assignment 02.
+Represents a general person in the system. This class will serve as the base class for `Student` and `Instructor`.
 
-🏗️ System Architecture
-1. Person Class (Base Class)
+#### Attributes (all private):
+- `string name`
+- `int id`
 
-Represents a general person in the system.
+#### Methods:
+- `display()`: Displays the person's name and ID (no virtual functions required)
 
-Attribute (private)	Type
-name	string
-id	int
+#### Subclasses (inherit from Person):
 
-✅ Methods:
+**Student:** Adds
+- `int yearLevel`
+- `string major`
 
-display() → prints name and ID.
+**Instructor:** Adds
+- `string department`
+- `int experienceYears`
 
-➡️ Used as a base class for Student and Instructor.
+---
 
-2. Student Class (inherits from Person)
-Attribute (private)	Type
-yearLevel	int
-major	string
-3. Instructor Class (inherits from Person)
-Attribute (private)	Type
-department	string
-experienceYears	int
-4. Course Class
+### b) Course Class
 
-Represents a course that students can enroll in.
+Represents a course that can be taken by students and taught by instructors.
 
-Attribute (private)	Type
-courseCode	string
-courseName	string
-maxStudents	int
-students	Student* (dynamically allocated array)
+#### Attributes (all private):
+- `string courseCode`
+- `string courseName`
+- `int maxStudents`
+- `Student* students` — dynamically allocated array of Student objects
 
-✅ Methods:
+#### Methods:
+- `addStudent(Student s)`: Adds a student to the array if capacity allows
+- `displayCourseInfo()`: Displays course name, code, and all enrolled students
 
-addStudent(Student s)
-
-displayCourseInfo()
-
-Uses dynamic allocation:
-students = new Student[maxStudents];
-
-5. Portal Class
-
-Represents the whole portal system managing all entities.
-
-Attribute	Type
-courses	Course*
-students	Student*
-instructors	Instructor*
-
-✅ Methods:
-
-initializePortal()
-
-enrollStudentInCourse(Student s, Course c)
-
-displayPortalInfo()
-
-🧪 Required in main()
-
-Initialize the portal
-
-Dynamically add students and instructors
-
-Enroll students in courses
-
-Display full portal information
-
-📁 Project Structure
-/project
-│
-├── Person.h
-├── Student.h
-├── Instructor.h
-├── Course.h
-├── Portal.h
-├── main.cpp          // contains all implementations
-└── yourInformation.txt
-
-✅ Deliverables Checklist
-Requirement	Status
-Person, Student, Instructor, Course, Portal classes	✅
-Header files + single main.cpp implementation	✅
-Constructors, destructors for all classes	✅
-Dynamic allocation using pointers (new)	✅
-yourInformation.txt created with required format	✅
-⚠️ Important Rules
-
-❌ Copying or cheating results in zero (0).
-
-❌ AI-generated code = 0 in the assignment (Use AI only for clarification or documentation — not code).
-
-✅ Each class must have:
-
-Default constructor
-
-Parameterized constructor
-
-Destructor
-
-🖥️ Example Output
-Educational Portal initialized successfully.
-
-Course: CS101 - Introduction to Programming
-Max Students: 3
-Currently Enrolled:
-   Omar Nabil (ID: 2202)
-
-Instructor Info:
-Name: Dr. Lina Khaled
-Department: Computer Science
-Experience: 5 years
-
-Student Info:
-Name: Omar Nabil
-Year: 2
-Major: Informatics
-
-✍️ yourInformation.txt format:
-TutorialNumber_StudentID_StudentName
-
-
-Example:
-
-T2_16007163_Ahmed Mohamed
+#### Example Dynamic Allocation:
+```cpp
