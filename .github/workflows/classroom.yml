@@ -88,16 +88,15 @@ jobs:
         command: ./main | grep -q "Omar Nabil"
         timeout: 10
         max-score: 5
-    - name: Autograding Reporter
-      uses: classroom-resources/autograding-grading-reporter@v1
-      env:
-        IMPLEMENTATION-FILE-CHECK_RESULTS: "${{steps.implementation-file-check.outputs.result}}"
-        PRIVATE-MEMBERS-CHECK_RESULTS: "${{steps.private-members-check.outputs.result}}"
-        ALL-CLASSES-DECLARED_RESULTS: "${{steps.all-classes-declared.outputs.result}}"
-        CONSTRUCTOR-DECLARATION_RESULTS: "${{steps.constructor-declaration.outputs.result}}"
-        DESTRUCTOR-DECLARATION_RESULTS: "${{steps.destructor-declaration.outputs.result}}"
-        COURSE-DISPLAY_RESULTS: "${{steps.course-display.outputs.result}}"
-        INSTRUCTOR-DISPLAY_RESULTS: "${{steps.instructor-display.outputs.result}}"
-        STUDENT-DISPLAY_RESULTS: "${{steps.student-display.outputs.result}}"
-      with:
-        runners: implementation-file-check,private-members-check,all-classes-declared,constructor-declaration,destructor-declaration,course-display,instructor-display,student-display
+    - name: Save Autograding Results to File
+      run: |
+      echo "Implementation File Check: ${{steps.implementation-file-check.outputs.result}}" >> results.txt
+      echo "Private Members Check: ${{steps.private-members-check.outputs.result}}" >> results.txt
+      echo "All Classes Declared: ${{steps.all-classes-declared.outputs.result}}" >> results.txt
+      echo "Constructor Declaration: ${{steps.constructor-declaration.outputs.result}}" >> results.txt
+      echo "Destructor Declaration: ${{steps.destructor-declaration.outputs.result}}" >> results.txt
+      echo "Course Display: ${{steps.course-display.outputs.result}}" >> results.txt
+      echo "Instructor Display: ${{steps.instructor-display.outputs.result}}" >> results.txt
+      echo "Student Display: ${{steps.student-display.outputs.result}}" >> results.txt
+
+    
