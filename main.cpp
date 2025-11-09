@@ -52,14 +52,14 @@ int main() {
     
     // Create students dynamically
     Student* omar = new Student("Omar Nabil", 2202, 2, "Informatics");
-    portal->addStudent(omar);
+    portal->addStudent(*omar);
     
     // Create instructors dynamically
     Instructor* lina = new Instructor("Dr. Lina Khaled", 1001, "Computer Science", 5);
-    portal->addInstructor(lina);
+    portal->addInstructor(*lina);
     
     // Enroll students in courses
-    portal->enrollStudentInCourse(omar, cs101);
+    portal->enrollStudentInCourse(*omar, *cs101);
     
     // Display portal information
     portal->displayPortalInfo();
