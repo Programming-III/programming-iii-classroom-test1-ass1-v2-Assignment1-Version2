@@ -106,11 +106,15 @@ This class represents a course offered in the system. Each course can have a lim
 
 
 Course: CS101 - Introduction to Programming
+
 Max Students: 3
+
 Currently Enrolled: Omar Nabil (ID: 2202)
 
 Instructor Info:
+
 Name: Dr. Lina Khaled
+
 Department: Computer Science
 Experience: 5 years
 
