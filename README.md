@@ -111,11 +111,11 @@ Currently Enrolled: Omar Nabil (ID: 2202)
 
 Instructor Info:
 Name: Dr. Lina Khaled
-Department: Computer Science
+Department: Computer Science  
 Experience: 5 years  
 
-Student Info:
-Name: Omar Nabil
-Year: 2
+Student Info:  
+Name: Omar Nabil  
+Year: 2  
 Major: Informatics
 
