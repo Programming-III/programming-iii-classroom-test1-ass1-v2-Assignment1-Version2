@@ -1,10 +1,13 @@
 # Programming III – Assignment 01: Educational Learning Portal System
 
-**Institution:** German International University  
-**Faculty:** Faculty of Informatics and Computer Science  
-**Instructor:** Dr. Nada Sharaf  
-**Course:** Programming III  
-**Semester:** Winter Semester 2025/2026
+The German International University
+Faculty of Informatics and Computer Science
+
+Dr. Nada Sharaf
+
+Programming III, Winter Semester 2025/26
+
+In-lab assignment 01
 
 
 
