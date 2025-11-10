@@ -18,7 +18,7 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Implementation File Check
-        setup-command: ''
+        setup-command: g++ -std=c++11 -o main main.cpp
         command: find . -maxdepth 1 -name '*.cpp' | wc -l
         timeout: 10
         max-score: 2
@@ -27,17 +27,21 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Private Members Check
-        setup-command: ''
-        command: 'grep -c ''private:'' *.h 2>/dev/null | awk -F: ''{sum += $2} END
-          {print sum}'''
+        setup-command: g++ -std=c++11 -o main main.cpp
+        command: found=0; for class in Person Student Instructor Course; do [ -f "${class}.h"
+          ] || continue; private_section=$(sed -n '/private:/,/public:\|protected:\|^}/p'
+          "${class}.h"); attr_count=$(echo "$private_section" | grep -E '^\s+\w+.*\w+\s*;'
+          | grep -v '(' | wc -l); [ "$attr_count" -ge 1 ] && found=$((found+1)); done;
+          case $found in 0) echo "0.00" ;; 1) echo "1.25" ;; 2) echo "2.50" ;; 3)
+          echo "3.75" ;; 4) echo "5.00" ;; esac
         timeout: 10
-        max-score: 10
+        max-score: 5
     - name: All Classes Declared
       id: all-classes-declared
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: All Classes Declared
-        setup-command: ''
+        setup-command: g++ -std=c++11 -o main main.cpp
         command: 'grep -c ''^class '' *.h | awk -F: ''{sum += $2} END {print sum}'''
         timeout: 10
         max-score: 5
@@ -46,9 +50,11 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Constructor Declaration
-        setup-command: ''
-        command: grep -E '(Person|Student|Instructor|Course|Portal)\\(\\);' *.h >/dev/null
-          2>&1 && echo 'PASS' || echo 'FAIL'
+        setup-command: g++ -std=c++11 -o main main.cpp
+        command: found=0; for class in Person Student Instructor Course; do [ -f "${class}.h"
+          ] && grep -qE "^\s*${class}\s*\(" "${class}.h" && found=$((found+1)); done;
+          case $found in 0) echo "0.00" ;; 1) echo "1.25" ;; 2) echo "2.50" ;; 3)
+          echo "3.75" ;; 4) echo "5.00" ;; esac
         timeout: 10
         max-score: 5
     - name: Destructor Declaration
@@ -56,9 +62,11 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Destructor Declaration
-        setup-command: ''
-        command: 'grep -c ''~'' *.h | awk -F: ''{sum += $2} END {if(sum >= 7) print
-          "PASS"; else print "FAIL"}'''
+        setup-command: g++ -std=c++11 -o main main.cpp
+        command: found=0; for class in Person Student Instructor Course; do [ -f "${class}.h"
+          ] && grep -q "~${class}" "${class}.h" && found=$((found+1)); done; case
+          $found in 0) echo "0.00" ;; 1) echo "1.25" ;; 2) echo "2.50" ;; 3) echo
+          "3.75" ;; 4) echo "5.00" ;; esac
         timeout: 10
         max-score: 5
     - name: Course Display
@@ -85,7 +93,18 @@ jobs:
       with:
         test-name: Student Display
         setup-command: g++ -std=c++11 -o main main.cpp
-        command: ./main | grep -q "Omar Nabil"
+        command: './main | grep -q "Omar Nabil" && ./main | grep -q "2202" && ./main
+          | grep -q "Year: 2" && ./main | grep -q "Major: Informatics"'
+        timeout: 10
+        max-score: 5
+    - name: Student Inherit Person
+      id: student-inherit-person
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Student Inherit Person
+        setup-command: g++ -std=c++11 -o main main.cpp
+        command: grep -qE "class\s+Student\s*:\s*(public|protected|private)\s+Person"
+          "Student.h" && echo "5.00" || echo "0.00"
         timeout: 10
         max-score: 5
     - name: Autograding Reporter
@@ -99,6 +118,6 @@ jobs:
         COURSE-DISPLAY_RESULTS: "${{steps.course-display.outputs.result}}"
         INSTRUCTOR-DISPLAY_RESULTS: "${{steps.instructor-display.outputs.result}}"
         STUDENT-DISPLAY_RESULTS: "${{steps.student-display.outputs.result}}"
+        STUDENT-INHERIT-PERSON_RESULTS: "${{steps.student-inherit-person.outputs.result}}"
       with:
-        runners: implementation-file-check,private-members-check,all-classes-declared,constructor-declaration,destructor-declaration,course-display,instructor-display,student-display
-    
+        runners: implementation-file-check,private-members-check,all-classes-declared,constructor-declaration,destructor-declaration,course-display,instructor-display,student-display,student-inherit-person
