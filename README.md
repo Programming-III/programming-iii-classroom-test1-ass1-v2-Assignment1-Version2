@@ -15,7 +15,7 @@ In-lab assignment 01
 
 In this project, you are required to implement a simple Educational Learning Portal System as a console-based application. The system models how students and instructors interact with courses in an educational environment.
 The main goal of this milestone is to practice some fundamental Object-Oriented Programming (OOP) concepts.
-In this phase, you will build the basic class structure of the system. The complete functionality and relationships between components will be implemented later in Milestone 2 (Assignment).
+In this phase, you will build the basic class structure of the system. The complete functionality and relationships between components will be implemented later in Milestone 2 (Assignment 2).
 
 
 
@@ -68,7 +68,7 @@ This class represents a course offered in the system. Each course can have a lim
 - `displayCourseInfo()` — displays the course's information and all enrolled students info
 
 
-##Deliverables:
+**Deliverables:**
 
 1. **Header files** for each of the mentioned classes.
 
@@ -79,17 +79,9 @@ This class represents a course offered in the system. Each course can have a lim
      - Adding students to a course
      - Display all course, instructor and student information in the **exact**same format shown in the console output below.
 
-3. **Edit in text file named yourInformation.txt** containing:
-```
-   TutorialNumber_StudentID_StudentName
-```
-   
-   **Example:**
-```
-   T2_16007163_Ahmed Mohamed
-```
+3. **Edit your information** in text file named **yourInformation.txt** following the same format: **TutorialNumber_StudentID_StudentName** 
+Example: T2_16007163_Ahmed Mohamed
 
----
 
 ## Important Notes
 
