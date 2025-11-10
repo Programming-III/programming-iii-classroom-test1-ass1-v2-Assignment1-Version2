@@ -36,16 +36,16 @@ This class represents a general person within the system. It will serve as a bas
 
 #### 1. Student Class
 
-Represents a student in the system. Inherits from Person and adds the following attributes:
+Represents a student in the system. Inherits from Person and has the following attributes:
 - `int yearLevel` 
 - `string major`
-- 
+
 **Methods:**
 - `display()` — displays all student information 
  
 #### 2. Instructor Class
 
-Represents an instructor in the system. Inherits from Person and adds the following attributes:
+Represents an instructor in the system. Inherits from Person and has the following attributes:
 - `string department` 
 - `int experienceYears` 
 
