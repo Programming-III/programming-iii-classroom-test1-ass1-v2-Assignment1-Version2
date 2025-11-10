@@ -1,7 +1,8 @@
 name: Autograding Tests
 'on':
-- push
-- repository_dispatch
+  repository_dispatch: []
+  schedule:
+  - cron: '47 19 * * *'
 permissions:
   checks: write
   actions: read
@@ -107,6 +108,16 @@ jobs:
           "Student.h" && echo "5.00" || echo "0.00"
         timeout: 10
         max-score: 5
+    - name: Instructor Inherit Person
+      id: instructor-inherit-person
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Instructor Inherit Person
+        setup-command: g++ -std=c++11 -o main main.cpp
+        command: grep -qE "class\s+Instructor\s*:\s*(public|protected|private)\s+Person"
+          "Instructor.h" && echo "5.00" || echo "0.00"
+        timeout: 10
+        max-score: 5
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
@@ -119,5 +130,6 @@ jobs:
         INSTRUCTOR-DISPLAY_RESULTS: "${{steps.instructor-display.outputs.result}}"
         STUDENT-DISPLAY_RESULTS: "${{steps.student-display.outputs.result}}"
         STUDENT-INHERIT-PERSON_RESULTS: "${{steps.student-inherit-person.outputs.result}}"
+        INSTRUCTOR-INHERIT-PERSON_RESULTS: "${{steps.instructor-inherit-person.outputs.result}}"
       with:
-        runners: implementation-file-check,private-members-check,all-classes-declared,constructor-declaration,destructor-declaration,course-display,instructor-display,student-display,student-inherit-person
+        runners: implementation-file-check,private-members-check,all-classes-declared,constructor-declaration,destructor-declaration,course-display,instructor-display,student-display,student-inherit-person,instructor-inherit-person
