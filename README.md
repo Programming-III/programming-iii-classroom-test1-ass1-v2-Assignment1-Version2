@@ -32,7 +32,7 @@ This class represents a general person within the system. It will serve as a bas
 **Methods:**
 - `display()` — displays the person's basic information (name and ID)
 
-**Subclasses (inherit from Person):**
+**Subclasses:**
 
 #### 1. Student Class
 
