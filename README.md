@@ -68,7 +68,7 @@ This class represents a course offered in the system. Each course can have a lim
 - `displayCourseInfo()` — displays the course's information and all enrolled students info
 
 
-**Deliverables:**
+## Deliverables
 
 1. **Header files** for each of the mentioned classes.
 
