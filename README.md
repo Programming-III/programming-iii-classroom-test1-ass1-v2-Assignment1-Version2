@@ -95,7 +95,7 @@ Major: Informatics
    - A `main()` function that demonstrates:
      - Creating objects of Student, Instructor, and Course
      - Adding students to a course
-     - Display all course, instructor and student information in the **exact** same format shown in the console output below.
+     - Display all course, instructor and student information in the **exact** same format shown in the console output above.
 
 3. **Edit your information** in text file named **yourInformation.txt** following the same format: **TutorialNumber_StudentID_StudentName** 
 Example: T2_16007163_Ahmed Mohamed
