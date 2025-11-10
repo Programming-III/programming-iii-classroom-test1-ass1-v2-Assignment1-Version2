@@ -68,6 +68,24 @@ This class represents a course offered in the system. Each course can have a lim
 - `displayCourseInfo()` — displays the course's information and all enrolled students info
 
 
+## Console Output 
+
+
+Course: CS101 - Introduction to Programming  
+Max Students: 3  
+Currently Enrolled: Omar Nabil (ID: 2202)  
+
+Instructor Info:  
+Name: Dr. Lina Khaled  
+Department: Computer Science  
+Experience: 5 years  
+
+Student Info:  
+Name: Omar Nabil  
+Year: 2  
+Major: Informatics
+
+
 ## Deliverables
 
 1. **Header files** for each of the mentioned classes.
@@ -94,20 +112,5 @@ Example: T2_16007163_Ahmed Mohamed
 - **All attributes must be private, and data access must be controlled through setter and getter methods.**
 
  
-## Console Output 
 
-
-Course: CS101 - Introduction to Programming  
-Max Students: 3  
-Currently Enrolled: Omar Nabil (ID: 2202)  
-
-Instructor Info:  
-Name: Dr. Lina Khaled  
-Department: Computer Science  
-Experience: 5 years  
-
-Student Info:  
-Name: Omar Nabil  
-Year: 2  
-Major: Informatics
 
