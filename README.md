@@ -30,7 +30,7 @@ This class represents a general person within the system. It will serve as a bas
 - `int id` — stores a unique identifier for the person
 
 **Methods:**
-- `display()` 
+- `display()` — displays the person's basic information (name and ID)
 
 **Subclasses (inherit from Person):**
 
@@ -39,14 +39,18 @@ This class represents a general person within the system. It will serve as a bas
 Represents a student in the system. Inherits from Person and adds the following attributes:
 - `int yearLevel` 
 - `string major`
-
+- 
+**Methods:**
+- `display()` — displays all student information 
+ 
 #### 2. Instructor Class
 
 Represents an instructor in the system. Inherits from Person and adds the following attributes:
 - `string department` 
 - `int experienceYears` 
 
----
+**Methods:**
+- `display()` — displays all instructor information 
 
 ### b) Course Class
 
@@ -54,7 +58,7 @@ This class represents a course offered in the system. Each course can have a lim
 
 **Private Attributes:**
 - `string courseCode` — unique course identifier 
-- `string courseName` — course title 
+- `string courseName`  
 - `int maxStudents` 
 - `Student* students` — dynamically allocated array of Student objects
 - `int currentStudents` 
