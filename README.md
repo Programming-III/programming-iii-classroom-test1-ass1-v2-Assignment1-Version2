@@ -36,7 +36,7 @@ This class represents a general person within the system. It will serve as a bas
 
 #### 1. Student Class
 
-Represents a student in the system. Inherits from Person and has the following attributes:
+Represents a student in the system and has the following attributes:
 - `int yearLevel` 
 - `string major`
 
@@ -45,7 +45,7 @@ Represents a student in the system. Inherits from Person and has the following a
  
 #### 2. Instructor Class
 
-Represents an instructor in the system. Inherits from Person and has the following attributes:
+Represents an instructor in the system and has the following attributes:
 - `string department` 
 - `int experienceYears` 
 
@@ -77,9 +77,9 @@ This class represents a course offered in the system. Each course can have a lim
    - A `main()` function that demonstrates:
      - Creating objects of Student, Instructor, and Course
      - Adding students to a course
-     - Display all course, instructor and student information in the same format **exactly** shown in the console output example below.
+     - Display all course, instructor and student information in the **exact**same format shown in the console output below.
 
-3. **A text file named yourInformation.txt** containing:
+3. **Edit in text file named yourInformation.txt** containing:
 ```
    TutorialNumber_StudentID_StudentName
 ```
